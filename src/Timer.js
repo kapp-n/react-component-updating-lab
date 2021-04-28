@@ -10,7 +10,18 @@ class Timer extends Component {
     };
   }
 
-  //Your code here
+  componentDidUpdate(){
+    this.timer.current.style.color = 'pink'
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    if (this.state.time === nextState.time) {
+      return false
+    }
+    return true
+  }
+  
+
 
   componentDidMount() {
     this.interval = setInterval(
